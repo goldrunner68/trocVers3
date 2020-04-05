@@ -16,7 +16,7 @@
         <ImageView
             android:id="@+id/imageView"
             android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="58dp"
-            app:srcCompat="@drawable/troc"/>
+            app:srcCompat="@drawable/troclogo"/>
         <EditText
             android:id="@+id/idNom"
             android:layout_width="match_parent"
@@ -59,6 +59,15 @@
             android:id="@+id/idButtonValidationInscription"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" android:layout_gravity="center" android:layout_marginTop="24dp"
-            android:text="@string/validez"/>
+            android:layout_marginLeft="24dp"
+            android:layout_marginRight="24dp"
+            android:background="@drawable/buttonshapevalidez"
+            android:shadowColor="#f7f7f2"
+            android:shadowDx="0"
+            android:shadowDy="0"
+            android:shadowRadius="5"
+            android:text="@string/inscription"
+            android:textColor="#f7f7f2"
+            android:textSize="11sp" tools:ignore="SmallSp"/>
     </LinearLayout>
 </LinearLayout>

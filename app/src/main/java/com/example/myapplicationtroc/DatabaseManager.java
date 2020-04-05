@@ -12,7 +12,7 @@ import java.util.List;
 
 public class DatabaseManager extends SQLiteOpenHelper {
 
-    private static final String DATABASE_NAME = "Game.db";
+    private static final String DATABASE_NAME = "Articles3.db";
     private static final int DATABASE_VERSION = 2;
 
     public DatabaseManager( Context context ) {
@@ -21,10 +21,10 @@ public class DatabaseManager extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        String strSql = "create table T_Scores ("
-                + "    idScore integer primary key autoincrement,"
+        String strSql = "create table Troc_Articles ("
+                + "    idArticle integer primary key autoincrement,"
                 + "    name text not null,"
-                + "    score integer not null,"
+                + "    categorie text not null,"
                 + "    when_ integer not null"
                 + ")";
         db.execSQL( strSql );
@@ -33,42 +33,38 @@ public class DatabaseManager extends SQLiteOpenHelper {
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-        //String strSql = "alter table T_Scores add column ...";
-        String strSql = "drop table T_Scores";
+        //String strSql = "alter table Troc_Articles add column ...";
+        String strSql = "drop table Troc_Articles";
         db.execSQL( strSql );
         this.onCreate( db );
         Log.i( "DATABASE", "onUpgrade invoked" );
     }
 
-    public void insertScore( String name, int score ) {
+    public void insertCategorie( String name, String categorie ) {
         name = name.replace( "'", "''" );
-        String strSql = "insert into T_Scores (name, score, when_) values ('"
-                + name + "', " + score + ", " + new Date().getTime() + ")";
+        categorie = categorie.replace( "'", "''" );
+        String strSql = "insert into Troc_Articles (name, categorie, when_) values ('"
+                + name + "', '" + categorie + "', " + new Date().getTime() + ")";
         this.getWritableDatabase().execSQL( strSql );
-        Log.i( "DATABASE", "insertScore invoked" );
+        Log.i( "DATABASE", "insertCategorie demande" );
     }
 
-    public List<ScoreData> readTop10() {
-        List<ScoreData> scores = new ArrayList<>();
+    public List<CategorieData> readTop10() {
+        List<CategorieData> categories = new ArrayList<>();
 
-        // 1ère technique : SQL
-        //String strSql = "select * from T_Scores order by score desc limit 10";
-        //Cursor cursor = this.getReadableDatabase().rawQuery( strSql, null );
-
-        // 2nd technique "plus objet"
-        Cursor cursor = this.getReadableDatabase().query( "T_Scores",
-                new String[] { "idScore", "name", "score", "when_" },
-                null, null, null, null, "score desc", "10" );
+        Cursor cursor = this.getReadableDatabase().query( "Troc_Articles",
+                new String[] { "idArticle", "name", "categorie", "when_" },
+                null, null, null, null, "idArticle", "10" );
         cursor.moveToFirst();
         while( ! cursor.isAfterLast() ) {
-            ScoreData score = new ScoreData( cursor.getInt( 0 ), cursor.getString( 1 ),
-                    cursor.getInt( 2 ), new Date( cursor.getLong( 3 ) ) );
-            scores.add( score );
+            CategorieData categorie = new CategorieData( cursor.getInt( 0 ), cursor.getString( 1 ),
+                    cursor.getString( 2 ), new Date( cursor.getLong( 3 ) ) );
+            categories.add( categorie );
             cursor.moveToNext();
         }
         cursor.close();
 
-        return scores;
+        return categories;
     }
 
 }
