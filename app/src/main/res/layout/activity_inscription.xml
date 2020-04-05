@@ -13,6 +13,10 @@
         android:layout_height="wrap_content" android:layout_gravity="center_vertical"
         android:background="?attr/selectableItemBackgroundBorderless"
         android:backgroundTint="?android:attr/panelBackground" android:orientation="vertical">
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="58dp"
+            app:srcCompat="@drawable/troc"/>
         <EditText
             android:id="@+id/idNom"
             android:layout_width="match_parent"
