@@ -57,6 +57,7 @@ public class DatabaseManager extends SQLiteOpenHelper {
                 null, null, null, null, "idArticle", "10" );
         cursor.moveToFirst();
         while( ! cursor.isAfterLast() ) {
+
             CategorieData categorie = new CategorieData( cursor.getInt( 0 ), cursor.getString( 1 ),
                     cursor.getString( 2 ), new Date( cursor.getLong( 3 ) ) );
             categories.add( categorie );

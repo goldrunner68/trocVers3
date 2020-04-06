@@ -52,6 +52,7 @@ public class CategorieData {
 
     @Override
     public String toString() {
+
         return idArticle + ": " + name + " -> " + categorie + " at " + when.toString();
     }
 }
