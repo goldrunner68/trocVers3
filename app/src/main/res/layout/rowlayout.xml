@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorAccentGREEN" tools:context="com.example.myapplicationtroc.MainActivity">
+    android:background="@color/colorGlobal" tools:context="com.example.myapplicationtroc.MainActivity">
     <LinearLayout
         android:id="@+id/idLayoutVerticale"
         android:layout_width="match_parent"
@@ -13,17 +13,17 @@
         android:background="?attr/selectableItemBackgroundBorderless"
         android:backgroundTint="?android:attr/panelBackground" android:orientation="vertical" tools:ignore="ExtraText">
 
-    <ImageView
-        android:contentDescription="@string/row"
-        android:id="@+id/icon"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
-        android:layout_marginLeft="6dp"
-        android:layout_marginRight="6dp"
-        android:layout_marginTop="5dp"
-        android:layout_marginBottom="5dp"
-        android:src="@drawable/ic_launcher" >
-    </ImageView>
+        <ImageView
+            android:id="@+id/icon"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginLeft="6dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginRight="6dp"
+            android:layout_marginBottom="5dp"
+            android:contentDescription="@string/row"
+            android:src="@drawable/ic_launcher_background" tools:srcCompat="@drawable/device">
+        </ImageView>
 
     <TextView
         android:id="@+id/label"
