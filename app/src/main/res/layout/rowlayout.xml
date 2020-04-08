@@ -6,35 +6,40 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorGlobal" tools:context="com.example.myapplicationtroc.MainActivity">
-    <LinearLayout
-        android:id="@+id/idLayoutVerticale"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" android:layout_gravity="center_vertical"
-        android:background="?attr/selectableItemBackgroundBorderless"
-        android:backgroundTint="?android:attr/panelBackground" android:orientation="vertical" tools:ignore="ExtraText">
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:id="@+id/idLayoutVerticale"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" android:layout_gravity="center_vertical"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:backgroundTint="?android:attr/panelBackground" android:orientation="vertical"
+            tools:ignore="ExtraText">
 
-        <ImageView
-            android:id="@+id/icon"
-            android:layout_width="60dp"
-            android:layout_height="60dp"
-            android:layout_marginLeft="6dp"
-            android:layout_marginTop="5dp"
-            android:layout_marginRight="6dp"
-            android:layout_marginBottom="5dp"
-            android:contentDescription="@string/row"
-            android:src="@drawable/ic_launcher_background" tools:srcCompat="@drawable/device">
-        </ImageView>
+            <ImageView
+                android:id="@+id/icon"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_marginLeft="6dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginRight="6dp"
+                android:layout_marginBottom="5dp"
+                android:contentDescription="@string/row"
+                android:src="@drawable/ic_launcher_background" tools:srcCompat="@drawable/device">
+            </ImageView>
 
-    <TextView
-        android:id="@+id/label"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginTop="20dp"
-        android:layout_marginBottom="20dp"
-        android:layout_marginStart="10dp"
-        android:text="@string/text"
-        android:textSize="26sp" >
-    </TextView>
+            <TextView
+                android:id="@+id/label"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="20dp"
+                android:text="@string/text"
+                android:textSize="26sp">
+            </TextView>
 
-    </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
 </LinearLayout>

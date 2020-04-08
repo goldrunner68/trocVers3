@@ -7,94 +7,99 @@
     android:layout_height="match_parent"
     android:background="@color/colorGlobal" tools:context="com.example.myapplicationtroc.MainActivity">
 
-    <LinearLayout
-        android:id="@+id/idLayoutVerticale"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" android:layout_gravity="center_vertical"
-        android:background="?attr/selectableItemBackgroundBorderless"
-        android:backgroundTint="?android:attr/panelBackground" android:orientation="vertical">
-        <ImageView
-            android:id="@+id/imageView"
-            android:layout_width="match_parent" android:layout_height="wrap_content"
-            android:contentDescription="@string/todo" app:srcCompat="@drawable/troc_relief_logo_no_cadre_livre_3"/>
-        <EditText
-            android:id="@+id/idNom"
+        android:layout_height="match_parent" tools:ignore="UselessParent">
+        <LinearLayout
+            android:id="@+id/idLayoutVerticale"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="24dp" android:layout_marginTop="0dp"
-            android:layout_marginRight="24dp" android:layout_marginBottom="0dp"
-            android:autofillHints=""
-            android:background="@color/ColorVertBlanc"
-            android:ems="10"
-            android:inputType="textEmailAddress"
-            android:shadowColor="#A8A8A8"
-            android:shadowDx="0"
-            android:shadowDy="0"
-            android:shadowRadius="5" android:text="@string/votre_nom"
-            android:textAlignment="center" android:textColor="#121113" android:textSize="30sp"
-            tools:ignore="LabelFor"/>
-        <EditText
-            android:id="@+id/idPrenom"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="24dp" android:layout_marginTop="24dp"
-            android:layout_marginRight="24dp" android:layout_marginBottom="0dp"
-            android:autofillHints=""
-            android:background="@color/ColorVertBlanc"
-            android:ems="10"
-            android:inputType="textPassword"
-            android:shadowColor="#A8A8A8"
-            android:shadowDx="0"
-            android:shadowDy="0"
-            android:shadowRadius="5" android:text="@string/votre_prenom"
-            android:textAlignment="center" android:textColor="#121113"
-            android:textSize="30sp" tools:ignore="LabelFor"/>
-        <EditText
-            android:id="@+id/idMotDePasse"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="24dp" android:layout_marginTop="24dp"
-            android:layout_marginRight="24dp" android:layout_marginBottom="0dp"
-            android:autofillHints=""
-            android:background="@color/ColorVertBlanc"
-            android:ems="10"
-            android:inputType="textPassword"
-            android:shadowColor="#A8A8A8"
-            android:shadowDx="0"
-            android:shadowDy="0"
-            android:shadowRadius="5" android:text="@string/un_mot_de_passe"
-            android:textAlignment="center" android:textColor="#121113"
-            android:textSize="30sp" tools:ignore="LabelFor"/>
-        <EditText
-            android:id="@+id/idMotDePasseConfirm"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="24dp" android:layout_marginTop="24dp"
-            android:layout_marginRight="24dp" android:layout_marginBottom="0dp"
-            android:autofillHints=""
-            android:background="@color/ColorVertBlanc"
-            android:ems="10"
-            android:inputType="textPassword"
-            android:shadowColor="#A8A8A8"
-            android:shadowDx="0"
-            android:shadowDy="0"
-            android:shadowRadius="5" android:text="@string/une_deuxieme_fois_votre_mot_de_passe"
-            android:textAlignment="center" android:textColor="#121113"
-            android:textSize="30sp" tools:ignore="LabelFor"/>
-        <Button
-            android:id="@+id/idButtonValidationInscription"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" android:layout_gravity="center"
-            android:layout_marginLeft="24dp" android:layout_marginTop="24dp"
-            android:layout_marginRight="24dp"
-            android:layout_marginBottom="0dp"
-            android:background="@color/ColorNoir"
-            android:shadowColor="#f7f7f2"
-            android:shadowDx="0"
-            android:shadowDy="0"
-            android:shadowRadius="5"
-            android:text="@string/inscription"
-            android:textColor="#f7f7f2"
-            android:textSize="11sp" tools:ignore="SmallSp"/>
-    </LinearLayout>
+            android:layout_height="wrap_content" android:layout_gravity="center_vertical"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:backgroundTint="?android:attr/panelBackground" android:orientation="vertical">
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="301dp" android:layout_height="155dp"
+                android:layout_gravity="center|center_vertical" android:contentDescription="@string/todo"
+                android:padding="16dp" app:srcCompat="@drawable/troc_relief_logo_no_cadre_livre_3"/>
+            <EditText
+                android:id="@+id/idNom"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="24dp" android:layout_marginTop="0dp"
+                android:layout_marginRight="24dp" android:layout_marginBottom="0dp"
+                android:autofillHints=""
+                android:background="@color/ColorVertBlanc"
+                android:ems="10"
+                android:inputType="textEmailAddress"
+                android:shadowColor="#A8A8A8"
+                android:shadowDx="0"
+                android:shadowDy="0"
+                android:shadowRadius="5" android:text="@string/votre_nom"
+                android:textAlignment="center" android:textColor="#121113" android:textSize="30sp"
+                tools:ignore="LabelFor"/>
+            <EditText
+                android:id="@+id/idPrenom"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="24dp" android:layout_marginTop="24dp"
+                android:layout_marginRight="24dp" android:layout_marginBottom="0dp"
+                android:autofillHints=""
+                android:background="@color/ColorVertBlanc"
+                android:ems="10"
+                android:inputType="textPassword"
+                android:shadowColor="#A8A8A8"
+                android:shadowDx="0"
+                android:shadowDy="0"
+                android:shadowRadius="5" android:text="@string/votre_prenom"
+                android:textAlignment="center" android:textColor="#121113"
+                android:textSize="30sp" tools:ignore="LabelFor"/>
+            <EditText
+                android:id="@+id/idMotDePasse"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="24dp" android:layout_marginTop="24dp"
+                android:layout_marginRight="24dp" android:layout_marginBottom="0dp"
+                android:autofillHints=""
+                android:background="@color/ColorVertBlanc"
+                android:ems="10"
+                android:inputType="textPassword"
+                android:shadowColor="#A8A8A8"
+                android:shadowDx="0"
+                android:shadowDy="0"
+                android:shadowRadius="5" android:text="@string/un_mot_de_passe"
+                android:textAlignment="center" android:textColor="#121113"
+                android:textSize="30sp" tools:ignore="LabelFor"/>
+            <EditText
+                android:id="@+id/idMotDePasseConfirm"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="24dp" android:layout_marginTop="24dp"
+                android:layout_marginRight="24dp" android:layout_marginBottom="0dp"
+                android:autofillHints=""
+                android:background="@color/ColorVertBlanc"
+                android:ems="10"
+                android:inputType="textPassword"
+                android:shadowColor="#A8A8A8"
+                android:shadowDx="0"
+                android:shadowDy="0"
+                android:shadowRadius="5" android:text="@string/une_deuxieme_fois_votre_mot_de_passe"
+                android:textAlignment="center" android:textColor="#121113"
+                android:textSize="30sp" tools:ignore="LabelFor"/>
+            <Button
+                android:id="@+id/idButtonValidationInscription"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" android:layout_gravity="center"
+                android:layout_marginLeft="24dp" android:layout_marginTop="24dp"
+                android:layout_marginRight="24dp"
+                android:layout_marginBottom="0dp"
+                android:background="@color/ColorNoir"
+                android:shadowColor="#f7f7f2"
+                android:shadowDx="0"
+                android:shadowDy="0"
+                android:shadowRadius="5"
+                android:text="@string/inscription"
+                android:textColor="#f7f7f2"
+                android:textSize="11sp" tools:ignore="SmallSp"/>
+        </LinearLayout>
+    </ScrollView>
 </LinearLayout>
