@@ -1,9 +1,6 @@
-package com.example.myapplicationtroc;
-
-import java.util.ArrayList;
+package com.example.myapplicationtroc.Article;
 
 import android.annotation.SuppressLint;
-import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -18,40 +15,41 @@ import android.widget.AdapterView.OnItemLongClickListener;
 import android.widget.ListView;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
+import com.example.myapplicationtroc.R;
+import com.example.myapplicationtroc.User.AddActivityUser;
+import com.example.myapplicationtroc.User.DbHelperUser;
+import com.example.myapplicationtroc.User.DisplayAdapterUser;
 
-/**
- * activity to display all records from SQLite database
- * @author ketan(Visit my <a
- *         href="http://androidsolution4u.blogspot.in/">blog</a>)
- */
-public class DisplayActivity extends AppCompatActivity {
+import java.util.ArrayList;
 
-	private DbHelper mHelper;
+public class DisplayActivityArticle extends AppCompatActivity {
+
+	private DbHelperUser mHelper;
 	private SQLiteDatabase dataBase;
 
 	private ArrayList<String> userId = new ArrayList<String>();
-	private ArrayList<String> user_fName = new ArrayList<String>();
-	private ArrayList<String> user_lName = new ArrayList<String>();
+	private ArrayList<String> user_titre = new ArrayList<String>();
+	private ArrayList<String> user_article = new ArrayList<String>();
 
-	private ListView userList;
+	private ListView articleList;
 	private AlertDialog.Builder build;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.display_activity);
+		setContentView(R.layout.display_activity_article);
 
-		userList = (ListView) findViewById(R.id.List);
+		articleList = (ListView) findViewById(R.id.List);
 
-		mHelper = new DbHelper(this);
+		mHelper = new DbHelperUser(this);
 		
 		//add new record
-		findViewById(R.id.btnAdd).setOnClickListener(new OnClickListener() {
+		findViewById(R.id.btnAddUser).setOnClickListener(new OnClickListener() {
 
 			public void onClick(View v) {
 
 				Intent i = new Intent(getApplicationContext(),
-						AddActivity.class);
+						AddActivityUser.class);
 				i.putExtra("update", false);
 				startActivity(i);
 
@@ -59,15 +57,15 @@ public class DisplayActivity extends AppCompatActivity {
 		});
 		
 		//click to update data
-		userList.setOnItemClickListener(new OnItemClickListener() {
+		articleList.setOnItemClickListener(new OnItemClickListener() {
 
 			public void onItemClick(AdapterView<?> arg0, View arg1, int arg2,
 					long arg3) {
 
 				Intent i = new Intent(getApplicationContext(),
-						AddActivity.class);
-				i.putExtra("Fname", user_fName.get(arg2));
-				i.putExtra("Lname", user_lName.get(arg2));
+						AddActivityUser.class);
+				i.putExtra("Fname", user_titre.get(arg2));
+				i.putExtra("Lname", user_article.get(arg2));
 				i.putExtra("ID", userId.get(arg2));
 				i.putExtra("update", true);
 				startActivity(i);
@@ -76,14 +74,14 @@ public class DisplayActivity extends AppCompatActivity {
 		});
 		
 		//long click to delete data
-		userList.setOnItemLongClickListener(new OnItemLongClickListener() {
+		articleList.setOnItemLongClickListener(new OnItemLongClickListener() {
 
 			public boolean onItemLongClick(AdapterView<?> arg0, View arg1,
 					final int arg2, long arg3) {
 
-				build = new AlertDialog.Builder(DisplayActivity.this);
-				build.setTitle("Delete " + user_fName.get(arg2) + " "
-						+ user_lName.get(arg2));
+				build = new AlertDialog.Builder(DisplayActivityArticle.this);
+				build.setTitle("Delete " + user_titre.get(arg2) + " "
+						+ user_article.get(arg2));
 				build.setMessage("Do you want to delete ?");
 				build.setPositiveButton("Yes",
 						new DialogInterface.OnClickListener() {
@@ -94,13 +92,13 @@ public class DisplayActivity extends AppCompatActivity {
 
 								Toast.makeText(
 										getApplicationContext(),
-										user_fName.get(arg2) + " "
-												+ user_lName.get(arg2)
+										user_titre.get(arg2) + " "
+												+ user_article.get(arg2)
 												+ " is deleted.", 3000).show();
 
 								dataBase.delete(
-										DbHelper.TABLE_NAME,
-										DbHelper.KEY_ID + "="
+										DbHelperUser.TABLE_NAME,
+										DbHelperUser.KEY_ID + "="
 												+ userId.get(arg2), null);
 								displayData();
 								dialog.cancel();
@@ -135,21 +133,21 @@ public class DisplayActivity extends AppCompatActivity {
 	private void displayData() {
 		dataBase = mHelper.getWritableDatabase();
 		Cursor mCursor = dataBase.rawQuery("SELECT * FROM "
-				+ DbHelper.TABLE_NAME, null);
+				+ DbHelperUser.TABLE_NAME, null);
 
 		userId.clear();
-		user_fName.clear();
-		user_lName.clear();
+		user_titre.clear();
+		user_article.clear();
 		if (mCursor.moveToFirst()) {
 			do {
-				userId.add(mCursor.getString(mCursor.getColumnIndex(DbHelper.KEY_ID)));
-				user_fName.add(mCursor.getString(mCursor.getColumnIndex(DbHelper.KEY_FNAME)));
-				user_lName.add(mCursor.getString(mCursor.getColumnIndex(DbHelper.KEY_LNAME)));
+				userId.add(mCursor.getString(mCursor.getColumnIndex(DbHelperUser.KEY_ID)));
+				user_titre.add(mCursor.getString(mCursor.getColumnIndex(DbHelperUser.KEY_FNAME)));
+				user_article.add(mCursor.getString(mCursor.getColumnIndex(DbHelperUser.KEY_LNAME)));
 
 			} while (mCursor.moveToNext());
 		}
-		DisplayAdapter disadpt = new DisplayAdapter(DisplayActivity.this,userId, user_fName, user_lName);
-		userList.setAdapter(disadpt);
+		DisplayAdapterArticle disadpt = new DisplayAdapterArticle(DisplayActivityArticle.this,userId, user_titre , user_article);
+		articleList.setAdapter(disadpt);
 		mCursor.close();
 	}
 

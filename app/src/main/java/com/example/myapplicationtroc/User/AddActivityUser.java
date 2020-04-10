@@ -1,4 +1,4 @@
-package com.example.myapplicationtroc;
+package com.example.myapplicationtroc.User;
 
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -10,15 +10,17 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
+import com.example.myapplicationtroc.R;
+
 /**
  * activity to get input from user and insert into SQLite database
  * @author ketan(Visit my <a
  *         href="http://androidsolution4u.blogspot.in/">blog</a>)
  */
-public class AddActivity extends Activity implements OnClickListener {
+public class AddActivityUser extends Activity implements OnClickListener {
 private Button btn_save;
 private EditText edit_first,edit_last;
-private DbHelper mHelper;
+private DbHelperUser mHelper;
 private SQLiteDatabase dataBase;
 private String id,fname,lname;
 private boolean isUpdate;
@@ -26,7 +28,7 @@ private boolean isUpdate;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.add_activity);
+        setContentView(R.layout.add_activity_user);
         
         btn_save=(Button)findViewById(R.id.save_btn);
         edit_first=(EditText)findViewById(R.id.frst_editTxt);
@@ -45,7 +47,7 @@ private boolean isUpdate;
          
          btn_save.setOnClickListener(this);
          
-         mHelper=new DbHelper(this);
+         mHelper=new DbHelperUser(this);
         
     }
 
@@ -59,7 +61,7 @@ private boolean isUpdate;
 		}
 		else
 		{
-			AlertDialog.Builder alertBuilder=new AlertDialog.Builder(AddActivity.this);
+			AlertDialog.Builder alertBuilder=new AlertDialog.Builder(AddActivityUser.this);
 			alertBuilder.setTitle("Invalid Data");
 			alertBuilder.setMessage("Please, Enter valid data");
 			alertBuilder.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
@@ -81,19 +83,19 @@ private boolean isUpdate;
 		dataBase=mHelper.getWritableDatabase();
 		ContentValues values=new ContentValues();
 		
-		values.put(DbHelper.KEY_FNAME,fname);
-		values.put(DbHelper.KEY_LNAME,lname );
+		values.put(DbHelperUser.KEY_FNAME,fname);
+		values.put(DbHelperUser.KEY_LNAME,lname );
 		
 		System.out.println("");
 		if(isUpdate)
 		{    
 			//update database with new data 
-			dataBase.update(DbHelper.TABLE_NAME, values, DbHelper.KEY_ID+"="+id, null);
+			dataBase.update(DbHelperUser.TABLE_NAME, values, DbHelperUser.KEY_ID+"="+id, null);
 		}
 		else
 		{
 			//insert data into database
-			dataBase.insert(DbHelper.TABLE_NAME, null, values);
+			dataBase.insert(DbHelperUser.TABLE_NAME, null, values);
 		}
 		//close database
 		dataBase.close();

@@ -1,4 +1,4 @@
-package com.example.myapplicationtroc;
+package com.example.myapplicationtroc.User;
 
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
@@ -8,13 +8,13 @@ import android.database.sqlite.SQLiteOpenHelper;
  * @author ketan(Visit my <a
  *         href="http://androidsolution4u.blogspot.in/">blog</a>)
  */
-public class DbHelper extends SQLiteOpenHelper {
+public class DbHelperUser extends SQLiteOpenHelper {
 	static String DATABASE_NAME="userdata";
 	public static final String TABLE_NAME="user";
 	public static final String KEY_FNAME="fname";
 	public static final String KEY_LNAME="lname";
 	public static final String KEY_ID="id";
-	public DbHelper(Context context) {
+	public DbHelperUser( Context context) {
 		super(context, DATABASE_NAME, null, 1);
 		
 	}
