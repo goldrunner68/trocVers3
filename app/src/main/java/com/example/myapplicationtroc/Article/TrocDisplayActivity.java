@@ -1,5 +1,6 @@
 package com.example.myapplicationtroc.Article;
 
+import android.widget.ImageView;
 import android.widget.ListView;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
@@ -20,10 +21,10 @@ public class TrocDisplayActivity extends AppCompatActivity {
         mMesTrocV = (ListView)findViewById(R.id.mesTroc);
         trocAdaptateur = new TrocAdaptateur(getApplicationContext(),0);
         mesTroc = new ArrayList<>();
-        mesTroc.add(new Troc("table","Lorem Ipsum est tout simplement un texte factice de l'industrie de l'impression et de la composition","neuf"));
-        mesTroc.add(new Troc("chaise","Lorem Ipsum est tout simplement un texte factice de l'industrie de l'impression et de la composition","occasion"));
-        mesTroc.add(new Troc("canape","Lorem Ipsum est tout simplement un texte factice de l'industrie de l'impression et de la composition","occasion"));
-        mesTroc.add(new Troc("Television","Lorem Ipsum est tout simplement un texte factice de l'industrie de l'impression et de la composition","neuf"));
+        mesTroc.add(new Troc("table",R.drawable.troclogo,"Lorem Ipsum est tout simplement un texte factice de l'industrie de l'impression et de la composition","neuf"));
+        mesTroc.add(new Troc("chaise",R.drawable.troclogo,"Lorem Ipsum est tout simplement un texte factice de l'industrie de l'impression et de la composition","occasion"));
+        mesTroc.add(new Troc("canape",R.drawable.troclogo,"Lorem Ipsum est tout simplement un texte factice de l'industrie de l'impression et de la composition","occasion"));
+        mesTroc.add(new Troc("Television",R.drawable.troclogo,"Lorem Ipsum est tout simplement un texte factice de l'industrie de l'impression et de la composition","neuf"));
    // j affecte mon addapteur a ma liste
         mMesTrocV.setAdapter(trocAdaptateur);
         trocAdaptateur.addAll(mesTroc);

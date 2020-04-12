@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:tools="http://schemas.android.com/tools"
               android:layout_width="match_parent"
               android:layout_height="match_parent" android:orientation="vertical">
 
@@ -8,18 +9,40 @@
         android:layout_height="wrap_content"
         android:background="@color/ColorVertBlanc" android:orientation="vertical" android:paddingLeft="5dp"
         android:paddingTop="5dp" android:paddingRight="5dp" android:paddingBottom="5dp">
-        <TextView
-            android:id="@+id/typeTroc"
+        <TableLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" android:text="type" android:textSize="18sp" android:textStyle="bold"/>
-        <TextView
-            android:id="@+id/trocDescription"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" android:text="description"/>
-        <TextView
-            android:id="@+id/trocEtat"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" android:text="etat"
-            android:textColor="@color/ColorNoir" android:textStyle="bold"/>
+            android:layout_height="match_parent">
+
+            <TableRow android:layout_width="match_parent" android:layout_height="match_parent">
+                <TextView
+                    android:id="@+id/typeTroc"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" android:padding="5dp" android:text="type"
+                    android:textSize="18sp" android:textStyle="bold"/>
+            </TableRow>
+            <TableRow android:layout_width="176dp" android:layout_height="match_parent">
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+                    <ImageView
+                        android:id="@+id/imageTroc"
+                        android:layout_width="match_parent" android:layout_height="wrap_content"
+                        android:padding="5dp" tools:srcCompat="@tools:sample/avatars[0]"/>
+                </TableRow>
+                <TableRow android:layout_width="275dp" android:layout_height="match_parent">
+                    <TextView
+                        android:id="@+id/trocDescription"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent" android:padding="5dp" android:text="description"/>
+                </TableRow>
+            </TableRow>
+            <TableRow android:layout_width="match_parent" android:layout_height="match_parent">
+                <TextView
+                    android:id="@+id/trocEtat"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" android:padding="5dp"
+                    android:text="etat" android:textColor="@color/ColorNoir" android:textStyle="bold"/>
+            </TableRow>
+        </TableLayout>
     </LinearLayout>
 </LinearLayout>

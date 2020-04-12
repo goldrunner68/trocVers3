@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -23,11 +24,15 @@ public class TrocAdaptateur extends ArrayAdapter<Troc> {
         LayoutInflater layoutInflater = (LayoutInflater)getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
     view = layoutInflater.inflate(R.layout.troc_cell, null);
     Troc currentTroc = getItem(position);
+
         TextView nomDuTroc = (TextView)view.findViewById(R.id.typeTroc);
+        ImageView imageDutroc = (ImageView)view.findViewById(R.id.imageTroc);
         TextView descriptionDuTroc = (TextView)view.findViewById(R.id.trocDescription);
         TextView etatDuTroc = (TextView)view.findViewById(R.id.trocEtat);
         assert currentTroc != null;
+
         nomDuTroc.setText(currentTroc.getNomDeLarticle());
+        imageDutroc.setImageResource(currentTroc.getImageArticle());
         descriptionDuTroc.setText(currentTroc.getDescriptionArticle());
         etatDuTroc.setText(currentTroc.getEtatDeLarticle());
     return  view;
