@@ -38,4 +38,5 @@ public class TrocAdaptateur extends ArrayAdapter<Troc> {
     return  view;
 
     }
+
 }
