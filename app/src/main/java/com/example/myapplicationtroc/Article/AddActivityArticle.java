@@ -25,7 +25,7 @@ private DbHelperUser mHelper;
 private SQLiteDatabase dataBase;
 private String id, titre, article;
 private boolean isUpdate;
-
+// todo changer les variables pour article
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

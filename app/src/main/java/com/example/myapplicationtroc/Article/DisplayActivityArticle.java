@@ -18,7 +18,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.myapplicationtroc.R;
 import com.example.myapplicationtroc.User.AddActivityUser;
 import com.example.myapplicationtroc.User.DbHelperUser;
-import com.example.myapplicationtroc.User.DisplayAdapterUser;
 
 import java.util.ArrayList;
 
@@ -27,9 +26,9 @@ public class DisplayActivityArticle extends AppCompatActivity {
 	private DbHelperUser mHelper;
 	private SQLiteDatabase dataBase;
 
-	private ArrayList<String> userId = new ArrayList<String>();
-	private ArrayList<String> user_titre = new ArrayList<String>();
-	private ArrayList<String> user_article = new ArrayList<String>();
+	private ArrayList<String> arti_id = new ArrayList<String>();
+	private ArrayList<String> arti_titre = new ArrayList<String>();
+	private ArrayList<String> arti_article = new ArrayList<String>();
 
 	private ListView articleList;
 	private AlertDialog.Builder build;
@@ -44,12 +43,12 @@ public class DisplayActivityArticle extends AppCompatActivity {
 		mHelper = new DbHelperUser(this);
 		
 		//add new record
-		findViewById(R.id.btnAddUser).setOnClickListener(new OnClickListener() {
+		findViewById(R.id.btnAddArticle).setOnClickListener(new OnClickListener() {
 
 			public void onClick(View v) {
 
 				Intent i = new Intent(getApplicationContext(),
-						AddActivityUser.class);
+						AddActivityArticle.class);
 				i.putExtra("update", false);
 				startActivity(i);
 
@@ -64,9 +63,9 @@ public class DisplayActivityArticle extends AppCompatActivity {
 
 				Intent i = new Intent(getApplicationContext(),
 						AddActivityUser.class);
-				i.putExtra("Fname", user_titre.get(arg2));
-				i.putExtra("Lname", user_article.get(arg2));
-				i.putExtra("ID", userId.get(arg2));
+				i.putExtra("Titre", arti_titre.get(arg2));
+				i.putExtra("Article", arti_article.get(arg2));
+				i.putExtra("ID", arti_id.get(arg2));
 				i.putExtra("update", true);
 				startActivity(i);
 
@@ -80,8 +79,8 @@ public class DisplayActivityArticle extends AppCompatActivity {
 					final int arg2, long arg3) {
 
 				build = new AlertDialog.Builder(DisplayActivityArticle.this);
-				build.setTitle("Delete " + user_titre.get(arg2) + " "
-						+ user_article.get(arg2));
+				build.setTitle("Delete " + arti_titre.get(arg2) + " "
+						+ arti_article.get(arg2));
 				build.setMessage("Do you want to delete ?");
 				build.setPositiveButton("Yes",
 						new DialogInterface.OnClickListener() {
@@ -92,14 +91,14 @@ public class DisplayActivityArticle extends AppCompatActivity {
 
 								Toast.makeText(
 										getApplicationContext(),
-										user_titre.get(arg2) + " "
-												+ user_article.get(arg2)
+										arti_titre.get(arg2) + " "
+												+ arti_article.get(arg2)
 												+ " is deleted.", 3000).show();
 
 								dataBase.delete(
 										DbHelperUser.TABLE_NAME,
 										DbHelperUser.KEY_ID + "="
-												+ userId.get(arg2), null);
+												+ arti_id.get(arg2), null);
 								displayData();
 								dialog.cancel();
 							}
@@ -135,18 +134,18 @@ public class DisplayActivityArticle extends AppCompatActivity {
 		Cursor mCursor = dataBase.rawQuery("SELECT * FROM "
 				+ DbHelperUser.TABLE_NAME, null);
 
-		userId.clear();
-		user_titre.clear();
-		user_article.clear();
+		arti_id.clear();
+		arti_titre.clear();
+		arti_article.clear();
 		if (mCursor.moveToFirst()) {
 			do {
-				userId.add(mCursor.getString(mCursor.getColumnIndex(DbHelperUser.KEY_ID)));
-				user_titre.add(mCursor.getString(mCursor.getColumnIndex(DbHelperUser.KEY_FNAME)));
-				user_article.add(mCursor.getString(mCursor.getColumnIndex(DbHelperUser.KEY_LNAME)));
+				arti_id.add(mCursor.getString(mCursor.getColumnIndex(DbHelperUser.KEY_ID)));
+				arti_titre.add(mCursor.getString(mCursor.getColumnIndex(DbHelperUser.KEY_FNAME)));
+				arti_article.add(mCursor.getString(mCursor.getColumnIndex(DbHelperUser.KEY_LNAME)));
 
 			} while (mCursor.moveToNext());
 		}
-		DisplayAdapterArticle disadpt = new DisplayAdapterArticle(DisplayActivityArticle.this,userId, user_titre , user_article);
+		DisplayAdapterArticle disadpt = new DisplayAdapterArticle(DisplayActivityArticle.this, arti_id , arti_titre , arti_article);
 		articleList.setAdapter(disadpt);
 		mCursor.close();
 	}
