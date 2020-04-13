@@ -1,47 +1,49 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
               xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:tools="http://schemas.android.com/tools"
-              android:layout_width="match_parent"
+              android:layout_width="wrap_content"
               android:layout_height="wrap_content" android:orientation="vertical">
 
     <LinearLayout
-        android:layout_width="423dp"
+        android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/ColorVertBlanc" android:orientation="vertical" android:paddingLeft="5dp"
-        android:paddingTop="5dp" android:paddingRight="5dp" android:paddingBottom="5dp">
+        android:background="@color/colorGlobal" android:orientation="vertical"
+        tools:ignore="UselessParent">
         <TableLayout
-            android:layout_width="wrap_content"
-            android:layout_height="158dp">
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" tools:ignore="UselessParent">
 
-            <TableRow android:layout_width="match_parent" android:layout_height="match_parent">
+            <TableRow android:layout_width="wrap_content" android:layout_height="match_parent"
+                      android:background="@color/ColorVert">
                 <TextView
                     android:id="@+id/typeTroc"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content" android:padding="5dp" android:text="type"
+                    android:layout_height="wrap_content" android:padding="8dp"
+                    android:text="@string/type" android:textColor="@color/design_default_color_on_secondary"
                     android:textSize="18sp" android:textStyle="bold"/>
             </TableRow>
-            <TableRow android:layout_width="176dp" android:layout_height="match_parent">
-                <TableRow
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent">
-                    <ImageView
-                        android:id="@+id/imageView"
-                        android:layout_width="149dp" android:layout_height="match_parent"
-                        android:padding="5dp" app:srcCompat="@drawable/chaise"/>
-                </TableRow>
-                <TableRow android:layout_width="183dp" android:layout_height="83dp">
-                    <TextView
-                        android:id="@+id/trocDescription"
-                        android:layout_width="255dp"
-                        android:layout_height="match_parent" android:padding="5dp" android:text="description"/>
-                </TableRow>
+            <TableRow android:layout_width="wrap_content" android:layout_height="match_parent"
+                      android:background="@color/Colorblanc">
+                <ImageView
+                    android:id="@+id/imageView"
+                    android:layout_width="153dp" android:layout_height="153dp"
+                    android:contentDescription="TODO" app:srcCompat="@drawable/chaise"/>
+                <TextView
+                    android:id="@+id/trocDescription"
+                    android:layout_width="258dp"
+                    android:layout_height="match_parent"
+                    android:padding="8dp"
+                    android:text="@string/description"
+                    android:textAlignment="textStart" android:textColor="@color/design_default_color_on_secondary"/>
             </TableRow>
-            <TableRow android:layout_width="match_parent" android:layout_height="match_parent">
+            <TableRow android:layout_width="wrap_content" android:layout_height="match_parent"
+                      android:background="@color/Colorblanc">
                 <TextView
                     android:id="@+id/trocEtat"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content" android:padding="5dp"
-                    android:text="etat" android:textColor="@color/ColorNoir" android:textStyle="bold"/>
+                    android:layout_height="match_parent"
+                    android:padding="8dp" android:text="@string/etat" android:textColor="@color/ColorNoir"
+                    android:textStyle="bold"/>
             </TableRow>
         </TableLayout>
     </LinearLayout>
