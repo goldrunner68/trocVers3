@@ -21,8 +21,8 @@ public class UsersManager {
             " "+ KEY_ID_USERS+" INTEGER primary key," +
             " "+ KEY_NOM +" TEXT," +
             " "+ KEY_PRENOM +" TEXT," +
-            " "+ KEY_PSEUDO +" TEXT," +
-            " "+ KEY_EMAIL +" TEXT" +
+            " "+ KEY_EMAIL +" TEXT," +
+            " "+ KEY_PSEUDO +" TEXT" +
             ");";
 
     private MySQLite maBaseSQLite; // notre gestionnaire du fichier SQLite
@@ -70,7 +70,7 @@ public class UsersManager {
         values.put(KEY_PSEUDO , usersTable.getPseudo());
 
         String where = KEY_ID_USERS +" = ?";
-        String[] whereArgs = {usersTable .getId_Users()+""};
+        String[] whereArgs = {usersTable.getId_users()+""};
 
         return db.update(TABLE_USERS, values, where, whereArgs);
     }
@@ -80,7 +80,7 @@ public class UsersManager {
         // valeur de retour : (int) nombre de lignes affectées par la clause WHERE, 0 sinon
 
         String where = KEY_ID_USERS +" = ?";
-        String[] whereArgs = {usersTable.getId_Users()+""};
+        String[] whereArgs = {usersTable.getId_users()+""};
 
         return db.delete(TABLE_USERS , where, whereArgs);
     }
@@ -92,11 +92,11 @@ public class UsersManager {
 
         Cursor c = db.rawQuery("SELECT * FROM "+ TABLE_USERS +" WHERE "+ KEY_ID_USERS +"="+id, null);
         if (c.moveToFirst()) {
-            a.setId_Users(c.getInt(c.getColumnIndex(KEY_ID_USERS)));
+            a.setId_users(c.getInt(c.getColumnIndex(KEY_ID_USERS)));
             a.setNom(c.getString(c.getColumnIndex(KEY_NOM)));
             a.setPrenom(c.getString(c.getColumnIndex(KEY_PRENOM)));
-            a.setPseudo(c.getString(c.getColumnIndex(KEY_EMAIL)));
-            a.setEmail(c.getString(c.getColumnIndex(KEY_PSEUDO)));
+            a.setEmail(c.getString(c.getColumnIndex(KEY_EMAIL)));
+            a.setPseudo(c.getString(c.getColumnIndex(KEY_PSEUDO)));
 
             c.close();
         }
@@ -109,4 +109,4 @@ public class UsersManager {
         return db.rawQuery("SELECT * FROM "+ TABLE_USERS , null);
     }
 
-} // class TrocManager
+}

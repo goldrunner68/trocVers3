@@ -46,49 +46,49 @@ public class TrocManager {
         db.close();
     }
 
-    public long addTroc( LesTrocTable lesTrocTable ) {
+    public long addTroc( TrocTable trocTable ) {
         // Ajout d'un enregistrement dans la table
 
         ContentValues values = new ContentValues();
-        values.put(KEY_TITRE , lesTrocTable.getTitre());
-        values.put(KEY_DESCRIPTIF , lesTrocTable.getDescriptif());
-        values.put(KEY_IMAGE , lesTrocTable.getImage());
-        values.put(KEY_ETAT , lesTrocTable.getEtat());
+        values.put(KEY_TITRE , trocTable.getTitre());
+        values.put(KEY_DESCRIPTIF , trocTable.getDescriptif());
+        values.put(KEY_IMAGE , trocTable.getImage());
+        values.put(KEY_ETAT , trocTable.getEtat());
 
         // insert() retourne l'id du nouvel enregistrement inséré, ou -1 en cas d'erreur
         return db.insert(TABLE_TROC ,null,values);
     }
 
-    public int modTroc( LesTrocTable lesTrocTable ) {
+    public int modTroc( TrocTable trocTable ) {
         // modification d'un enregistrement
         // valeur de retour : (int) nombre de lignes affectées par la requête
 
         ContentValues values = new ContentValues();
-        values.put(KEY_TITRE , lesTrocTable.getTitre());
-        values.put(KEY_DESCRIPTIF , lesTrocTable.getDescriptif());
-        values.put(KEY_IMAGE , lesTrocTable.getImage());
-        values.put(KEY_ETAT , lesTrocTable.getEtat());
+        values.put(KEY_TITRE , trocTable.getTitre());
+        values.put(KEY_DESCRIPTIF , trocTable.getDescriptif());
+        values.put(KEY_IMAGE , trocTable.getImage());
+        values.put(KEY_ETAT , trocTable.getEtat());
 
         String where = KEY_ID_TROC +" = ?";
-        String[] whereArgs = {lesTrocTable.getId_troc()+""};
+        String[] whereArgs = {trocTable.getId_troc()+""};
 
         return db.update(TABLE_TROC , values, where, whereArgs);
     }
 
-    public int supTroc( LesTrocTable lesTrocTable ) {
+    public int supTroc( TrocTable trocTable ) {
         // suppression d'un enregistrement
         // valeur de retour : (int) nombre de lignes affectées par la clause WHERE, 0 sinon
 
         String where = KEY_ID_TROC +" = ?";
-        String[] whereArgs = {lesTrocTable.getId_troc()+""};
+        String[] whereArgs = {trocTable.getId_troc()+""};
 
         return db.delete(TABLE_TROC , where, whereArgs);
     }
 
-    public LesTrocTable getTroc( int id) {
+    public TrocTable getTroc( int id) {
         // Retourne le TROC dont l'id est passé en paramètre
 
-        LesTrocTable a=new LesTrocTable(0,"","","", "");
+        TrocTable a=new TrocTable(0,"","","", "");
 
         Cursor c = db.rawQuery("SELECT * FROM "+ TABLE_TROC +" WHERE "+ KEY_ID_TROC +"="+id, null);
         if (c.moveToFirst()) {
@@ -109,4 +109,4 @@ public class TrocManager {
         return db.rawQuery("SELECT * FROM "+ TABLE_TROC , null);
     }
 
-} // class TrocManager
+}

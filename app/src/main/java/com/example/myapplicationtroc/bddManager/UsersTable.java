@@ -2,27 +2,28 @@ package com.example.myapplicationtroc.bddManager;
 
 public class UsersTable {
 
-    private int id_Users;
+    private int id_users;
     private  String nom;
     private String prenom;
     private String email;
     private String pseudo;
 
-    public UsersTable( int id_Users , String nom , String prenom , String pseudo , String email ) {
-        this.id_Users = id_Users;
+    public UsersTable( int id_users , String nom , String prenom , String email, String pseudo  ) {
+        this.id_users = id_users;
         this.nom = nom;
         this.prenom = prenom;
-        this.pseudo = pseudo;
         this.email = email;
+        this.pseudo = pseudo;
+
 
     }
 
-    public int getId_Users() {
-        return id_Users;
+    public int getId_users() {
+        return id_users;
     }
 
-    public void setId_Users( int id_Users ) {
-        this.id_Users = id_Users;
+    public void setId_users( int id_users ) {
+        this.id_users = id_users;
     }
 
     public String getNom() {
