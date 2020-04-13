@@ -4,13 +4,13 @@ public class LesTroc {
 
     private int id_troc;
     private String titre;
-    private String decriptif;
+    private String descriptif;
     private String etat;
 
-    public LesTroc( int id_troc , String titre , String decriptif , String etat ) {
+    public LesTroc( int id_troc , String titre , String descriptif , String etat ) {
         this.id_troc = id_troc;
         this.titre = titre;
-        this.decriptif = decriptif;
+        this.descriptif = descriptif;
         this.etat = etat;
     }
 
@@ -30,12 +30,12 @@ public class LesTroc {
         this.titre = titre;
     }
 
-    public String getDecriptif() {
-        return decriptif;
+    public String getDescriptif() {
+        return descriptif;
     }
 
-    public void setDecriptif( String decriptif ) {
-        this.decriptif = decriptif;
+    public void setDescriptif( String descriptif ) {
+        this.descriptif = descriptif;
     }
 
     public String getEtat() {
@@ -45,4 +45,4 @@ public class LesTroc {
     public void setEtat( String etat ) {
         this.etat = etat;
     }
-} // class Animal
+}

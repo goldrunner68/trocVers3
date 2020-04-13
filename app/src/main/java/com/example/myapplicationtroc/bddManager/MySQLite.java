@@ -34,4 +34,4 @@ public class MySQLite extends SQLiteOpenHelper {
         onCreate(sqLiteDatabase);
     }
 
-} // class MySQLite
+}

@@ -10,14 +10,14 @@ public class TrocManager {
     private static final String TABLE_TROC = "troc";
     public static final String KEY_ID_TROC ="id_troc";
     public static final String KEY_TITRE ="titre";
-    public static final String KEY_DESCRIPTIF ="decriptif";
+    public static final String KEY_DESCRIPTIF ="descriptif";
     public static final String KEY_ETAT ="etat";
-    public static final String CREATE_TABLE_TROC = "CREATE TABLE "+ TABLE_TROC +
+    public static final String CREATE_TABLE_TROC = "CREATE TABLE "+TABLE_TROC+
             " (" +
-            " "+ KEY_ID_TROC +" INTEGER primary key," +
-            " "+ KEY_TITRE +" TEXT" +
-            " "+ KEY_DESCRIPTIF +" TEXT" +
-            " "+ KEY_ETAT +" TEXT" +
+            " "+ KEY_ID_TROC+" INTEGER primary key," +
+            " "+ KEY_TITRE+" TEXT," +
+            " "+ KEY_DESCRIPTIF+" TEXT," +
+            " "+ KEY_ETAT+" TEXT" +
             ");";
 
     private MySQLite maBaseSQLite; // notre gestionnaire du fichier SQLite
@@ -46,8 +46,8 @@ public class TrocManager {
 
         ContentValues values = new ContentValues();
         values.put(KEY_TITRE , lesTroc.getTitre());
-        values.put(KEY_DESCRIPTIF , lesTroc.getTitre());
-        values.put(KEY_ETAT , lesTroc.getTitre());
+        values.put(KEY_DESCRIPTIF , lesTroc.getDescriptif());
+        values.put(KEY_ETAT , lesTroc.getEtat());
         // insert() retourne l'id du nouvel enregistrement inséré, ou -1 en cas d'erreur
         return db.insert(TABLE_TROC ,null,values);
     }
@@ -58,8 +58,8 @@ public class TrocManager {
 
         ContentValues values = new ContentValues();
         values.put(KEY_TITRE , lesTroc.getTitre());
-        values.put(KEY_DESCRIPTIF , lesTroc.getTitre());
-        values.put(KEY_ETAT , lesTroc.getTitre());
+        values.put(KEY_DESCRIPTIF , lesTroc.getDescriptif());
+        values.put(KEY_ETAT , lesTroc.getEtat());
 
         String where = KEY_ID_TROC +" = ?";
         String[] whereArgs = {lesTroc.getId_troc()+""};
@@ -86,15 +86,15 @@ public class TrocManager {
         if (c.moveToFirst()) {
             a.setId_troc(c.getInt(c.getColumnIndex(KEY_ID_TROC)));
             a.setTitre(c.getString(c.getColumnIndex(KEY_TITRE)));
-            a.setTitre(c.getString(c.getColumnIndex(KEY_DESCRIPTIF)));
-            a.setTitre(c.getString(c.getColumnIndex(KEY_ETAT)));
+            a.setDescriptif(c.getString(c.getColumnIndex(KEY_DESCRIPTIF)));
+            a.setEtat(c.getString(c.getColumnIndex(KEY_ETAT)));
             c.close();
         }
 
         return a;
     }
 
-    public Cursor getAnimaux() {
+    public Cursor getTroc() {
         // sélection de tous les enregistrements de la table
         return db.rawQuery("SELECT * FROM "+ TABLE_TROC , null);
     }
