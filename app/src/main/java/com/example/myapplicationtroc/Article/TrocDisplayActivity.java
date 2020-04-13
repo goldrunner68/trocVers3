@@ -37,11 +37,10 @@ public class TrocDisplayActivity extends AppCompatActivity {
                 String leTitre = c.getString(c.getColumnIndex(TrocManager.KEY_TITRE));
                 String limage = c.getString(c.getColumnIndex(TrocManager.KEY_IMAGE));
                 String leDescriptif = c.getString(c.getColumnIndex(TrocManager.KEY_DESCRIPTIF));
-
                 String letat = c.getString(c.getColumnIndex(TrocManager.KEY_ETAT));
-
-
-                        mesTroc.add(new Troc(leTitre ,R.drawable.limage , leDescriptif , letat));
+                int img = getResources().getIdentifier(limage , "drawable" , getPackageName());
+                System.out.println(img);
+                mesTroc.add(new Troc(leTitre ,img, leDescriptif , letat));
 
             }
             while (c.moveToNext());

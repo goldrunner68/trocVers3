@@ -26,7 +26,7 @@ public class TrocAdaptateur extends ArrayAdapter<Troc> {
     Troc currentTroc = getItem(position);
 
         TextView nomDuTroc = (TextView)view.findViewById(R.id.typeTroc);
-        ImageView imageDutroc = (ImageView)view.findViewById(R.id.imageTroc);
+        ImageView imageDutroc = (ImageView)view.findViewById(R.id.imageView);
         TextView descriptionDuTroc = (TextView)view.findViewById(R.id.trocDescription);
         TextView etatDuTroc = (TextView)view.findViewById(R.id.trocEtat);
         assert currentTroc != null;
