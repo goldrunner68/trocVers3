@@ -1,6 +1,5 @@
 package com.example.myapplicationtroc.Article;
 
-import android.graphics.drawable.Drawable;
 
 public class Troc {
     private String nomDeLarticle;

@@ -1,6 +1,7 @@
 package com.example.myapplicationtroc.bddManager;
 
-public class LesTroc {
+public class LesTrocTable
+{
 
     private int id_troc;
     private String titre;
@@ -8,7 +9,7 @@ public class LesTroc {
     private String etat;
     private String image;
 
-    public LesTroc( int id_troc , String titre , String descriptif , String image, String etat ) {
+    public LesTrocTable( int id_troc , String titre , String descriptif , String image, String etat ) {
         this.id_troc = id_troc;
         this.titre = titre;
         this.descriptif = descriptif;
