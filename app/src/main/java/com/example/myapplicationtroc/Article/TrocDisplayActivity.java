@@ -40,6 +40,7 @@ public class TrocDisplayActivity extends AppCompatActivity {
                 // attention ne pas mettre d extention jpg ou autre dans la BDD pour les noms de fichiers
                 int img = getResources().getIdentifier(limage , "drawable" , getPackageName());
                 System.out.println(img);
+                //je les ajoutes dans l arraylist(listView)
                 mesTroc.add(new Troc("Type de produit : "+leTitre , img ,"Descriptif : " +leDescriptif , "Etat du produit : "+letat));
 
             }
