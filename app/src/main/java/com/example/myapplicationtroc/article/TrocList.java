@@ -1,13 +1,13 @@
 package com.example.myapplicationtroc.article;
 
 
-public class Troc {
+public class TrocList {
     private String nomDeLarticle;
     private String descriptionArticle;
     private String etatDeLarticle;
     private int imageArticle;
 
-    public Troc( String nomDeLarticle , int imageArticle, String descriptionArticle , String etatDeLarticle  ) {
+    public TrocList( String nomDeLarticle , int imageArticle, String descriptionArticle , String etatDeLarticle  ) {
         this.nomDeLarticle = nomDeLarticle;
         this.descriptionArticle = descriptionArticle;
         this.etatDeLarticle = etatDeLarticle;

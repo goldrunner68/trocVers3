@@ -14,7 +14,7 @@ import com.example.myapplicationtroc.bddManager.TrocManager;
 import java.util.ArrayList;
 
 public class TrocDisplayActivity extends AppCompatActivity {
-    private ArrayList<Troc> mesTroc;
+    private ArrayList<TrocList> mesTrocList;
     private ListView mMesTrocV;//m(variable)debut et fin V(View)
     private TrocAdaptateur trocAdaptateur;
     private TrocManager trocManager;
@@ -28,7 +28,7 @@ public class TrocDisplayActivity extends AppCompatActivity {
         this.idAdd = (Button) this.findViewById(R.id.idAdd);
         this.mMesTrocV = (ListView) this.findViewById(R.id.mesTroc);
         trocAdaptateur = new TrocAdaptateur(getApplicationContext() , 0);
-        mesTroc = new ArrayList<>();
+        mesTrocList = new ArrayList<>();
         // j ecoute mes Buttons car il attend un evenement
         idAdd.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -52,7 +52,7 @@ public class TrocDisplayActivity extends AppCompatActivity {
                 int img = getResources().getIdentifier(limage , "drawable" , getPackageName());
                 System.out.println(img);
                 //je les ajoutes dans l arraylist(listView)
-                mesTroc.add(new Troc("Type de produit : "+leTitre , img ,"Descriptif : " +leDescriptif , "Etat du produit : "+letat));
+                mesTrocList.add(new TrocList("Type de produit : "+leTitre , img ,"Descriptif : " +leDescriptif , "Etat du produit : "+letat));
 
             }
             while (c.moveToNext());
@@ -66,6 +66,6 @@ public class TrocDisplayActivity extends AppCompatActivity {
 
         // j affecte mon addapteur a ma liste
         mMesTrocV.setAdapter(trocAdaptateur);
-        trocAdaptateur.addAll(mesTroc);
+        trocAdaptateur.addAll(mesTrocList);
     }
 }

@@ -11,7 +11,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import com.example.myapplicationtroc.R;
 
-public class TrocAdaptateur extends ArrayAdapter<Troc> {
+public class TrocAdaptateur extends ArrayAdapter<TrocList> {
     public TrocAdaptateur( @NonNull Context context , int resource ) {
         super(context , resource);
     }
@@ -23,18 +23,18 @@ public class TrocAdaptateur extends ArrayAdapter<Troc> {
         // pour chercher la cellule(troc_cell)
         LayoutInflater layoutInflater = (LayoutInflater)getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
     view = layoutInflater.inflate(R.layout.troc_cell, null);
-    Troc currentTroc = getItem(position);
+    TrocList currentTrocList = getItem(position);
 
         TextView nomDuTroc = (TextView)view.findViewById(R.id.typeTroc);
         ImageView imageDutroc = (ImageView)view.findViewById(R.id.imageView10);
         TextView descriptionDuTroc = (TextView)view.findViewById(R.id.trocDescription);
         TextView etatDuTroc = (TextView)view.findViewById(R.id.trocEtat);
-        assert currentTroc != null;
+        assert currentTrocList != null;
 
-        nomDuTroc.setText(currentTroc.getNomDeLarticle());
-        imageDutroc.setImageResource(currentTroc.getImageArticle());
-        descriptionDuTroc.setText(currentTroc.getDescriptionArticle());
-        etatDuTroc.setText(currentTroc.getEtatDeLarticle());
+        nomDuTroc.setText(currentTrocList.getNomDeLarticle());
+        imageDutroc.setImageResource(currentTrocList.getImageArticle());
+        descriptionDuTroc.setText(currentTrocList.getDescriptionArticle());
+        etatDuTroc.setText(currentTrocList.getEtatDeLarticle());
     return  view;
 
     }
