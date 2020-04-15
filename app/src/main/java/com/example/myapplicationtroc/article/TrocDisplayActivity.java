@@ -18,15 +18,15 @@ public class TrocDisplayActivity extends AppCompatActivity {
     private ListView mMesTrocV;//m(variable)debut et fin V(View)
     private TrocAdaptateur trocAdaptateur;
     private TrocManager trocManager;
+    private Button idAdd;
 
 
     @Override
     protected void onCreate( Bundle savedInstanceState ) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_troc_display);
-        Button idAdd = (Button) findViewById(R.id.idAdd);
-
-        mMesTrocV = (ListView) findViewById(R.id.mesTroc);
+        this.idAdd = (Button) this.findViewById(R.id.idAdd);
+        this.mMesTrocV = (ListView) this.findViewById(R.id.mesTroc);
         trocAdaptateur = new TrocAdaptateur(getApplicationContext() , 0);
         mesTroc = new ArrayList<>();
         // j ecoute mes Buttons car il attend un evenement
