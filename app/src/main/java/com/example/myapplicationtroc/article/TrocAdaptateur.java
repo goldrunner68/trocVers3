@@ -1,4 +1,4 @@
-package com.example.myapplicationtroc.Article;
+package com.example.myapplicationtroc.article;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -26,7 +26,7 @@ public class TrocAdaptateur extends ArrayAdapter<Troc> {
     Troc currentTroc = getItem(position);
 
         TextView nomDuTroc = (TextView)view.findViewById(R.id.typeTroc);
-        ImageView imageDutroc = (ImageView)view.findViewById(R.id.imageView);
+        ImageView imageDutroc = (ImageView)view.findViewById(R.id.imageView10);
         TextView descriptionDuTroc = (TextView)view.findViewById(R.id.trocDescription);
         TextView etatDuTroc = (TextView)view.findViewById(R.id.trocEtat);
         assert currentTroc != null;

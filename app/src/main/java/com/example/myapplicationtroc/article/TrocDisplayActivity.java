@@ -1,9 +1,13 @@
-package com.example.myapplicationtroc.Article;
+package com.example.myapplicationtroc.article;
 
+import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.ListView;
 import androidx.appcompat.app.AppCompatActivity;
+import com.example.myapplicationtroc.AddTrocActivity;
 import com.example.myapplicationtroc.R;
 import com.example.myapplicationtroc.bddManager.TrocManager;
 
@@ -20,11 +24,18 @@ public class TrocDisplayActivity extends AppCompatActivity {
     protected void onCreate( Bundle savedInstanceState ) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_troc_display);
+        Button idAdd = (Button) findViewById(R.id.idAdd);
 
         mMesTrocV = (ListView) findViewById(R.id.mesTroc);
         trocAdaptateur = new TrocAdaptateur(getApplicationContext() , 0);
         mesTroc = new ArrayList<>();
-
+        // j ecoute mes Buttons car il attend un evenement
+        idAdd.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick( View v ) {// depart de page,  vers l autre page
+                    startActivity(new Intent(TrocDisplayActivity.this , AddTrocActivity.class));
+            }
+        });
         TrocManager trocManager = new TrocManager(this); // gestionnaire de la table "troc"
         trocManager.open(); // ouverture de la table en lecture/écriture
         Cursor c = trocManager.getTroc();

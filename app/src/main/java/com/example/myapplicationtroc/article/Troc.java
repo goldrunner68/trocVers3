@@ -1,4 +1,4 @@
-package com.example.myapplicationtroc.Article;
+package com.example.myapplicationtroc.article;
 
 
 public class Troc {
