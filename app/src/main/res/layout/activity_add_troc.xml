@@ -78,25 +78,20 @@
             </LinearLayout>
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="132dp"
                 android:orientation="vertical">
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="vertical">
-                    <Button
-                        android:id="@+id/idAjouterTroc"
-                        android:layout_width="129dp"
-                        android:layout_height="wrap_content" android:layout_gravity="center"
-                        android:layout_marginLeft="24dp" android:layout_marginTop="24dp"
-                        android:layout_marginRight="24dp" android:layout_marginBottom="0dp"
-                        android:background="@drawable/buttonshape"
-                        android:shadowColor="@color/ColorNoir"
-                        android:shadowDx="0"
-                        android:shadowDy="0"
-                        android:shadowRadius="5"
-                        android:text="@string/ajout_du_troc" android:textColor="@color/Colorblanc"/>
-                </LinearLayout>
+                <Button
+                    android:id="@+id/idAjouterTroc"
+                    android:layout_width="129dp"
+                    android:layout_height="wrap_content" android:layout_gravity="center"
+                    android:layout_marginLeft="24dp" android:layout_marginTop="24dp"
+                    android:layout_marginRight="24dp" android:layout_marginBottom="0dp"
+                    android:background="@drawable/buttonshape"
+                    android:shadowColor="@color/ColorNoir"
+                    android:shadowDx="0"
+                    android:shadowDy="0"
+                    android:shadowRadius="5"
+                    android:text="@string/ajout_du_troc" android:textColor="@color/Colorblanc"/>
             </LinearLayout>
         </LinearLayout>
     </ScrollView>

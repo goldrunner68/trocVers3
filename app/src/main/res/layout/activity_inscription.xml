@@ -19,7 +19,7 @@
             android:backgroundTint="?android:attr/panelBackground" android:orientation="vertical">
             <ImageView
                 android:id="@+id/imageView9"
-                android:layout_width="match_parent" android:layout_height="match_parent"
+                android:layout_width="match_parent" android:layout_height="201dp"
                 android:layout_gravity="center|center_vertical"
                 android:padding="16dp" app:srcCompat="@drawable/troc_relief_logo_no_cadre_livre_3"
                 tools:ignore="ContentDescription"/>
