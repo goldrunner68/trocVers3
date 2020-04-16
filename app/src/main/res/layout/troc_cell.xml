@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
               xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:tools="http://schemas.android.com/tools"
-              android:layout_width="wrap_content"
+              android:layout_width="match_parent"
               android:layout_height="wrap_content" android:orientation="vertical">
 
     <LinearLayout
@@ -24,10 +24,6 @@
             </TableRow>
             <TableRow android:layout_width="wrap_content" android:layout_height="match_parent"
                       android:background="@color/Colorblanc">
-                <ImageView
-                    android:id="@+id/imageView10"
-                    android:layout_width="153dp" android:layout_height="153dp"
-                    android:contentDescription="TODO" app:srcCompat="@drawable/chaise"/>
                 <TextView
                     android:id="@+id/trocDescription"
                     android:layout_width="258dp"
@@ -35,6 +31,10 @@
                     android:padding="8dp"
                     android:text="@string/description"
                     android:textAlignment="textStart" android:textColor="@color/design_default_color_on_secondary"/>
+                <ImageView
+                    android:id="@+id/imageView10"
+                    android:layout_width="153dp" android:layout_height="153dp"
+                    app:srcCompat="@drawable/chaise"/>
             </TableRow>
             <TableRow android:layout_width="wrap_content" android:layout_height="match_parent"
                       android:background="@color/Colorblanc">

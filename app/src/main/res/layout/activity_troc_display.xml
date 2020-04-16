@@ -15,13 +15,13 @@
             android:id="@+id/idAdd"
             android:layout_width="0dp"
             android:layout_height="wrap_content" android:layout_margin="5dp" android:layout_weight="1"
-            android:background="@color/ColorOrange" android:shadowColor="@color/ColorJaune"
+            android:background="@drawable/buttonshape" android:shadowColor="@color/ColorJaune"
             android:text="@string/ajouter_un_troc" android:textColor="@color/Colorblanc" tools:ignore="ButtonStyle"/>
         <Button
             android:id="@+id/idSupp"
             android:layout_width="203dp"
             android:layout_height="wrap_content" android:layout_margin="5dp"
-            android:background="@color/ColorOrange"
+            android:background="@drawable/buttonshape"
             android:shadowColor="@color/ColorJaune" android:text="@string/supprimer_un_depot_troc"
             android:textColor="@color/Colorblanc" tools:ignore="ButtonStyle"/>
     </LinearLayout>

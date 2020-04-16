@@ -18,9 +18,9 @@
                 <ImageView
                     android:id="@+id/imageView20"
                     android:layout_width="337dp" android:layout_height="match_parent"
-                    android:layout_margin="5dp" android:layout_weight="1" android:background="@color/Colorblanc"
-                    app:srcCompat="@android:drawable/ic_menu_camera"
-                    tools:ignore="VectorDrawableCompat" android:contentDescription="@string/imagecamera"/>
+                    android:layout_margin="5dp" android:layout_weight="1" android:background="@drawable/buttonshape"
+                    android:contentDescription="@string/imagecamera"
+                    app:srcCompat="@android:drawable/ic_menu_camera" tools:ignore="VectorDrawableCompat"/>
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
@@ -29,58 +29,61 @@
                         android:id="@+id/idPrendrePhoto"
                         android:layout_width="173dp"
                         android:layout_height="match_parent" android:layout_margin="5dp"
-                        android:layout_weight="1" android:background="@color/ColorOrange" android:text="@string/camera"
+                        android:layout_weight="1" android:background="@drawable/buttonshape"
+                        android:text="@string/camera"
                         android:textColor="@color/Colorblanc" tools:ignore="ButtonStyle,NestedWeights"/>
                     <Button
                         android:id="@+id/idfileImage"
                         android:layout_width="135dp"
                         android:layout_height="235dp" android:layout_margin="5dp"
                         android:layout_weight="1"
-                        android:background="@color/ColorOrange" android:text="@string/fichier"
+                        android:background="@drawable/buttonshape" android:text="@string/fichier"
                         android:textColor="@color/Colorblanc" tools:ignore="ButtonStyle"/>
                 </LinearLayout>
             </LinearLayout>
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="308dp"
-                android:background="@color/Colorblanc" android:orientation="vertical">
+                android:layout_height="358dp"
+                android:background="@color/colorGlobal" android:orientation="vertical">
                 <EditText
                     android:id="@+id/idEditTitreDuTroc"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:autofillHints=""
-                    android:ems="10"
-                    android:inputType="textPersonName" android:hint="@string/type_d_objet"
-                    android:textColor="@color/ColorNoir"
-                    tools:ignore="LabelFor"/>
+                    android:background="@drawable/buttonshaperow"
+                    android:ems="10" android:hint="@string/type_d_objet"
+                    android:inputType="textPersonName"
+                    android:textColor="@color/ColorNoir" tools:ignore="LabelFor"/>
                 <EditText
                     android:id="@+id/idEditDescription"
                     android:layout_width="match_parent"
-                    android:layout_height="145dp"
+                    android:layout_height="176dp"
                     android:autofillHints=""
-                    android:ems="10"
-                    android:inputType="textPersonName" android:hint="@string/d_crivez_le_produit"
-                    android:textColor="@color/ColorNoir" tools:ignore="LabelFor"/>
+                    android:background="@drawable/buttonshaperow"
+                    android:ems="10" android:hint="@string/d_crivez_le_produit"
+                    android:inputType="textPersonName" android:textColor="@color/ColorNoir"
+                    tools:ignore="LabelFor"/>
                 <EditText
                     android:id="@+id/idEditEtat"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:autofillHints=""
-                    android:ems="10"
-                    android:inputType="textPersonName" android:hint="@string/l_tat_du_produit"
-                    android:textColor="@color/ColorNoir" tools:ignore="LabelFor"/>
+                    android:background="@drawable/buttonshaperow"
+                    android:ems="10" android:hint="@string/l_tat_du_produit"
+                    android:inputType="textPersonName" android:textColor="@color/ColorNoir"
+                    tools:ignore="LabelFor"/>
                 <Button
                     android:id="@+id/idAjouterTroc"
-                    android:layout_width="wrap_content"
+                    android:layout_width="129dp"
                     android:layout_height="wrap_content" android:layout_gravity="center"
                     android:layout_marginLeft="24dp" android:layout_marginTop="24dp"
                     android:layout_marginRight="24dp" android:layout_marginBottom="0dp"
-                    android:background="@color/ColorNoir"
-                    android:shadowColor="#f7f7f2"
+                    android:background="@drawable/buttonshaperow"
+                    android:shadowColor="@color/ColorNoir"
                     android:shadowDx="0"
                     android:shadowDy="0"
                     android:shadowRadius="5"
-                    android:text="@string/ajout_du_troc" android:textColor="@color/Colorblanc"/>
+                    android:text="@string/ajout_du_troc" android:textColor="@color/ColorNoir"/>
             </LinearLayout>
         </LinearLayout>
     </ScrollView>
