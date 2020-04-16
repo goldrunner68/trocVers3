@@ -7,13 +7,12 @@ public class TrocList {
     private String etatDeLarticle;
     private int imageArticle;
 
-    public TrocList( String nomDeLarticle , int imageArticle, String descriptionArticle , String etatDeLarticle  ) {
+    public TrocList( String nomDeLarticle , int imageArticle , String descriptionArticle , String etatDeLarticle ) {
         this.nomDeLarticle = nomDeLarticle;
         this.descriptionArticle = descriptionArticle;
         this.etatDeLarticle = etatDeLarticle;
         this.imageArticle = imageArticle;
     }
-
 
 
     public String getNomDeLarticle() {

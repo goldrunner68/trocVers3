@@ -3,12 +3,12 @@ package com.example.myapplicationtroc.bddManager;
 public class UsersTable {
 
     private int id_users;
-    private  String nom;
+    private String nom;
     private String prenom;
     private String email;
     private String pseudo;
 
-    public UsersTable( int id_users , String nom , String prenom , String email, String pseudo  ) {
+    public UsersTable( int id_users , String nom , String prenom , String email , String pseudo ) {
         this.id_users = id_users;
         this.nom = nom;
         this.prenom = prenom;

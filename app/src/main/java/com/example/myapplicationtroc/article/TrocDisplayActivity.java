@@ -28,14 +28,14 @@ public class TrocDisplayActivity extends AppCompatActivity {
         setContentView(R.layout.activity_troc_display);
         this.idAdd = (Button) this.findViewById(R.id.idAdd);
         this.mMesTrocV = (ListView) this.findViewById(R.id.mesTroc);
-        this.idprofil= (Button) this.findViewById(R.id.idprofil);
+        this.idprofil = (Button) this.findViewById(R.id.idprofil);
         trocAdaptateur = new TrocAdaptateur(getApplicationContext() , 0);
         mesTrocList = new ArrayList<>();
         // j ecoute mes Buttons car il attend un evenement
         idAdd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick( View v ) {// depart de page,  vers l autre page
-                    startActivity(new Intent(TrocDisplayActivity.this , AddTrocActivity.class));
+                startActivity(new Intent(TrocDisplayActivity.this , AddTrocActivity.class));
             }
         });
         idprofil.setOnClickListener(new View.OnClickListener() {
@@ -62,7 +62,7 @@ public class TrocDisplayActivity extends AppCompatActivity {
                 int img = getResources().getIdentifier(limage , "drawable" , getPackageName());
                 System.out.println(img);
                 //je les ajoutes dans l arraylist(listView)
-                mesTrocList.add(new TrocList("Type de produit : "+leTitre , img ,"Descriptif : " +leDescriptif , "Etat du produit : "+letat));
+                mesTrocList.add(new TrocList("Type de produit : " + leTitre , img , "Descriptif : " + leDescriptif , "Etat du produit : " + letat));
 
             }
             while (c.moveToNext());

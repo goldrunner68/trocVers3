@@ -1,7 +1,6 @@
 package com.example.myapplicationtroc.bddManager;
 
-public class TrocTable
-{
+public class TrocTable {
 
     private int id_troc;
     private String titre;
@@ -9,7 +8,7 @@ public class TrocTable
     private String etat;
     private String image;
 
-    public TrocTable( int id_troc , String titre , String descriptif , String image, String etat ) {
+    public TrocTable( int id_troc , String titre , String descriptif , String image , String etat ) {
         this.id_troc = id_troc;
         this.titre = titre;
         this.descriptif = descriptif;
