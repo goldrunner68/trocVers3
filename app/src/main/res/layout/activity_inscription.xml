@@ -80,7 +80,7 @@
                 android:autofillHints=""
                 android:background="@drawable/buttonshaperow"
                 android:ems="10"
-                android:hint="@string/une_deuxieme_fois_votre_mot_de_passe"
+                android:hint="@string/confirmez_le_passe"
                 android:inputType="textPassword"
                 android:shadowColor="#A8A8A8"
                 android:shadowDx="0"

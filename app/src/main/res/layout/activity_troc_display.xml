@@ -10,27 +10,32 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:background="@color/ColorVert" android:orientation="horizontal">
         <Button
             android:id="@+id/idAdd"
             android:layout_width="0dp"
             android:layout_height="wrap_content" android:layout_margin="5dp" android:layout_weight="1"
-            android:background="@drawable/buttonshape" android:shadowColor="@color/ColorJaune"
+            android:background="@drawable/buttonshape" android:shadowColor="@color/ColorNoir"
             android:text="@string/ajouter_un_troc" android:textColor="@color/Colorblanc" tools:ignore="ButtonStyle"/>
         <Button
             android:id="@+id/idSupp"
             android:layout_width="203dp"
             android:layout_height="wrap_content" android:layout_margin="5dp"
             android:background="@drawable/buttonshape"
-            android:shadowColor="@color/ColorJaune" android:text="@string/supprimer_un_depot_troc"
+            android:shadowColor="@color/ColorNoir" android:text="@string/supprimer_un_depot_troc"
             android:textColor="@color/Colorblanc" tools:ignore="ButtonStyle"/>
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="498dp"
         android:orientation="vertical">
         <ListView
             android:id="@+id/mesTroc"
             android:layout_width="match_parent" android:layout_height="match_parent"/>
     </LinearLayout>
+    <Button
+        android:id="@+id/idprofil"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" android:background="@color/ColorOrange" android:shadowColor="@color/ColorNoir"
+        android:text="@string/mon_compte" android:textColor="@color/Colorblanc"/>
 </LinearLayout>

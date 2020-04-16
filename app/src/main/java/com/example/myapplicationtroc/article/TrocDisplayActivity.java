@@ -8,6 +8,7 @@ import android.widget.Button;
 import android.widget.ListView;
 import androidx.appcompat.app.AppCompatActivity;
 import com.example.myapplicationtroc.AddTrocActivity;
+import com.example.myapplicationtroc.ProfilActivity;
 import com.example.myapplicationtroc.R;
 import com.example.myapplicationtroc.bddManager.TrocManager;
 
@@ -19,7 +20,7 @@ public class TrocDisplayActivity extends AppCompatActivity {
     private TrocAdaptateur trocAdaptateur;
     private TrocManager trocManager;
     private Button idAdd;
-
+    private Button idprofil;
 
     @Override
     protected void onCreate( Bundle savedInstanceState ) {
@@ -27,6 +28,7 @@ public class TrocDisplayActivity extends AppCompatActivity {
         setContentView(R.layout.activity_troc_display);
         this.idAdd = (Button) this.findViewById(R.id.idAdd);
         this.mMesTrocV = (ListView) this.findViewById(R.id.mesTroc);
+        this.idprofil= (Button) this.findViewById(R.id.idprofil);
         trocAdaptateur = new TrocAdaptateur(getApplicationContext() , 0);
         mesTrocList = new ArrayList<>();
         // j ecoute mes Buttons car il attend un evenement
@@ -36,6 +38,14 @@ public class TrocDisplayActivity extends AppCompatActivity {
                     startActivity(new Intent(TrocDisplayActivity.this , AddTrocActivity.class));
             }
         });
+        idprofil.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick( View v ) {// depart de page,  vers l autre page
+                startActivity(new Intent(TrocDisplayActivity.this , ProfilActivity.class));
+            }
+        });
+
+
         TrocManager trocManager = new TrocManager(this); // gestionnaire de la table "troc"
         trocManager.open(); // ouverture de la table en lecture/écriture
         Cursor c = trocManager.getTroc();
