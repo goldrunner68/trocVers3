@@ -6,7 +6,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import androidx.appcompat.app.AppCompatActivity;
-import com.example.myapplicationtroc.viewList.TrocDisplayActivity;
+
+import com.example.myapplicationtroc.article.TrocDisplayActivity;
 import com.example.myapplicationtroc.bddManager.UsersManager;
 
 

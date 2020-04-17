@@ -31,14 +31,14 @@
 
         <activity android:name=".ProfilActivity"
         android:label="Profil"
-        android:parentActivityName=".viewList.TrocDisplayActivity">
+        android:parentActivityName=".article.TrocDisplayActivity">
         </activity>
 
-        <activity android:name=".viewList.TrocDisplayActivity">
+        <activity android:name=".article.TrocDisplayActivity">
         </activity>
         <activity android:name=".AddTrocActivity"
             android:label="Mes Troc"
-            android:parentActivityName=".viewList.TrocDisplayActivity">
+            android:parentActivityName=".article.TrocDisplayActivity">
         </activity>
 
         <activity

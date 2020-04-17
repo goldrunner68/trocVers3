@@ -62,6 +62,7 @@ public class AddTrocActivity extends AppCompatActivity {
             }
         });
     }
+
     private void ajouterToutBdd() {
         TrocManager m = new TrocManager(this); // gestionnaire de la table "animal"
         m.open(); // ouverture de la table en lecture/écriture
@@ -91,8 +92,44 @@ public class AddTrocActivity extends AppCompatActivity {
 
 
 
+    @Override
+    protected void onActivityResult( int requestCode , int resultCode , Intent data ) {
+        super.onActivityResult(requestCode , resultCode , data);
 
+        if (requestCode == REQUEST_ID_IMAGE_CAPTURE) {
+            if (resultCode == RESULT_OK) {
+                Bitmap bp = (Bitmap) data.getExtras().get("data");
+                this.imageView20.setImageBitmap(bp);
 
+            } else if (resultCode == RESULT_CANCELED) {
+                Toast.makeText(this , "Action annulée" , Toast.LENGTH_LONG).show();
 
+            } else {
+                Toast.makeText(this , "Petite érreur" , Toast.LENGTH_LONG).show();
+            }
+        }
+    }
+    //getPhotoFileUri : cette fonction, qui prend un paramètre une String correpondant au nom du fichier, va nous retourner un
+    // URI vers l'image prise et stockée la photo sur le disque avec le nom du fichier.
+
+    public Uri getPhotoFile( String fileName ) {
+        if (isExternalStorageAvailable()) {
+            File mediaStorageDir = new File(
+                    getExternalFilesDir(Environment.DIRECTORY_PICTURES) , TAG);
+            if (!mediaStorageDir.exists() && !mediaStorageDir.mkdirs()) {
+                Log.d(TAG , "erreur de creation du repertoire");
+            }
+            return Uri.fromFile(new File(mediaStorageDir.getPath() + File.separator + fileName));
+
+        }
+        return null;
+    }
+
+    //isExternalStorageAvailable : cette méthode nous permet de savoir
+    // si un stockage externe pour les photos est disponible
+    private boolean isExternalStorageAvailable() {
+        String state = Environment.getExternalStorageState();
+        return state.equals(Environment.MEDIA_MOUNTED);
+    }
 
 }
