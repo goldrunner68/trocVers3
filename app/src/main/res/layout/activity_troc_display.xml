@@ -40,7 +40,7 @@
         <Button
             android:id="@+id/idprofil"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" android:background="@drawable/btnrshape"
+            android:layout_height="match_parent" android:background="@drawable/btnrshape"
             android:shadowColor="@color/ColorNoir"
             android:text="@string/mon_compte" android:textColor="@color/Colorblanc"/>
     </LinearLayout>
