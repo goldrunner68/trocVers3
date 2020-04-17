@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorGlobal">#3D4D91</color>
+    <color name="ColorNoir">#121113</color>
+    <color name="ColorOrange">#EF6732</color>
+    <color name="ColorJaune">#F4E733</color>
+    <color name="ColorVert">#81AB01</color>
+    <color name="Colorblanc">#FFFFFF</color>
+</resources>

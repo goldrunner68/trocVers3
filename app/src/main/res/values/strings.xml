@@ -1,0 +1,44 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <string name="app_name">My ApplicationTroc</string>
+    <string name="validez">Validez</string>
+
+    <string name="password">Password</string>
+    <string name="une_deuxieme_fois_votre_mot_de_passe">Une deuxieme fois votre mot de passe</string>
+    <string name="un_mot_de_passe">Un mot de passe</string>
+    <string name="votre_email">Votre Email</string>
+    <string name="inscription">Inscription</string>
+    <string name="Validez"/>
+    <string name="Connexion"/>
+    <string name="connexion">Connexion</string>
+    <string name="text">text</string>
+    <string name="row">row</string>
+    <string name="votre_nom">Votre nom</string>
+    <string name="votre_prenom">Votre prenom</string>
+
+    <string name="etat">etat</string>
+    <string name="description">description</string>
+
+    <string name="type">type</string>
+    <string name="ajouter_un_troc">Ajouter un Troc</string>
+
+    <string name="Dépot"/>
+    <string name="type_d_objet">Type d\'objet</string>
+    <string name="d_crivez_le_produit">Décrivez le produit</string>
+    <string name="l_tat_du_produit">L\'état du produit</string>
+    <string name="camera">Camera</string>
+    <string name="fichier">FICHIER</string>
+    <string name="ajouter"/>
+    <string name="ajout_du_troc">Ajout du troc</string>
+    <string name="imagecamera">IMAGECAMERA</string>
+    <string name="add"/>
+    <string name="reset"/>
+    <string name="about"/>
+    <string name="exit"/>
+    <string name="confirmez_le_passe">Confirmez le passe</string>
+    <string name="mon_compte">Mon compte</string>
+    <string name="email">Email</string>
+    <string name="adreesse">Adreesse</string>
+    <string name="supp">supp</string>
+    <string name="supprimer">supprimer</string>
+
+</resources>

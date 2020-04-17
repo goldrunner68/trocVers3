@@ -54,7 +54,6 @@ public class AddTrocActivity extends AppCompatActivity {
             }
         });
         // j ecoute mes Buttons Ajouter image ,description titre dans la bdd
-
         idAjouterTroc.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick( View v ) {// ouvre la camera si clic sur btn camera
@@ -63,7 +62,6 @@ public class AddTrocActivity extends AppCompatActivity {
             }
         });
     }
-
     private void ajouterToutBdd() {
         TrocManager m = new TrocManager(this); // gestionnaire de la table "animal"
         m.open(); // ouverture de la table en lecture/écriture
@@ -88,100 +86,13 @@ public class AddTrocActivity extends AppCompatActivity {
         this.startActivityForResult(intent , REQUEST_ID_IMAGE_CAPTURE);
     }
 
-    private void askPermissionAndCaptureVideo() {
-
-        // With Android Level >= 23, you have to ask the user
-        // for permission to read/write data on the device.
-        if (android.os.Build.VERSION.SDK_INT >= 23) {
-
-            // Check if we have read/write permission
-            int readPermission = ActivityCompat.checkSelfPermission(this ,
-                    Manifest.permission.READ_EXTERNAL_STORAGE);
-            int writePermission = ActivityCompat.checkSelfPermission(this ,
-                    Manifest.permission.WRITE_EXTERNAL_STORAGE);
-
-            if (writePermission != PackageManager.PERMISSION_GRANTED ||
-                    readPermission != PackageManager.PERMISSION_GRANTED) {
-                // If don't have permission so prompt the user.
-                this.requestPermissions(
-                        new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE ,
-                                Manifest.permission.READ_EXTERNAL_STORAGE} ,
-                        REQUEST_ID_READ_WRITE_PERMISSION
-                );
-                return;
-            }
-        }
-
-    }
 
 
-    // When you have the request results
-    @Override
-    public void onRequestPermissionsResult( int requestCode ,
-                                            String permissions[] , int[] grantResults ) {
-
-        super.onRequestPermissionsResult(requestCode , permissions , grantResults);
-        //
-        switch (requestCode) {
-            case REQUEST_ID_READ_WRITE_PERMISSION: {
-
-                // Note: si la requete est refuse, le resultat est vide.
-                // Permission lecture ecriture
-                if (grantResults.length > 1
-                        && grantResults[0] == PackageManager.PERMISSION_GRANTED
-                        && grantResults[1] == PackageManager.PERMISSION_GRANTED) {
-
-                    Toast.makeText(this , "Permission accordée!" , Toast.LENGTH_LONG).show();
-
-                }
-                // Permission refusée ou non
-                else {
-                    Toast.makeText(this , "Permission refusée!" , Toast.LENGTH_LONG).show();
-                }
-                break;
-            }
-        }
-    }
 
 
-    @Override
-    protected void onActivityResult( int requestCode , int resultCode , Intent data ) {
-        super.onActivityResult(requestCode , resultCode , data);
 
-        if (requestCode == REQUEST_ID_IMAGE_CAPTURE) {
-            if (resultCode == RESULT_OK) {
-                Bitmap bp = (Bitmap) data.getExtras().get("data");
-                this.imageView20.setImageBitmap(bp);
 
-            } else if (resultCode == RESULT_CANCELED) {
-                Toast.makeText(this , "Action annulée" , Toast.LENGTH_LONG).show();
 
-            } else {
-                Toast.makeText(this , "Petite érreur" , Toast.LENGTH_LONG).show();
-            }
-        }
-    }
-    //getPhotoFileUri : cette fonction, qui prend un paramètre une String correpondant au nom du fichier, va nous retourner un
-    // URI vers l'image prise et stockée la photo sur le disque avec le nom du fichier.
 
-    public Uri getPhotoFile( String fileName ) {
-        if (isExternalStorageAvailable()) {
-            File mediaStorageDir = new File(
-                    getExternalFilesDir(Environment.DIRECTORY_PICTURES) , TAG);
-            if (!mediaStorageDir.exists() && !mediaStorageDir.mkdirs()) {
-                Log.d(TAG , "erreur de creation du repertoire");
-            }
-            return Uri.fromFile(new File(mediaStorageDir.getPath() + File.separator + fileName));
-
-        }
-        return null;
-    }
-
-    //isExternalStorageAvailable : cette méthode nous permet de savoir
-    // si un stockage externe pour les photos est disponible
-    private boolean isExternalStorageAvailable() {
-        String state = Environment.getExternalStorageState();
-        return state.equals(Environment.MEDIA_MOUNTED);
-    }
 
 }
