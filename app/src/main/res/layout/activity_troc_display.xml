@@ -12,16 +12,16 @@
         android:background="@color/ColorVert" android:orientation="horizontal">
         <Button
             android:id="@+id/idAdd"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content" android:layout_margin="5dp" android:layout_weight="1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:layout_margin="5dp"
             android:background="@drawable/btnradiusshape" android:shadowColor="@color/ColorNoir"
             android:text="@string/ajouter_un_troc" android:textColor="@color/Colorblanc" tools:ignore="ButtonStyle"/>
         <Button
             android:id="@+id/idSupp"
-            android:layout_width="203dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content" android:layout_margin="5dp"
             android:background="@drawable/btnradiusshape"
-            android:shadowColor="@color/ColorNoir" android:text="@string/supprimer_un_depot_troc"
+            android:shadowColor="@color/ColorNoir" android:text="supprimer"
             android:textColor="@color/Colorblanc" tools:ignore="ButtonStyle"/>
     </LinearLayout>
     <LinearLayout
