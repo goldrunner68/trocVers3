@@ -4,13 +4,13 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
-import android.widget.ListView;
+import android.widget.*;
 import androidx.appcompat.app.AppCompatActivity;
 import com.example.myapplicationtroc.AddTrocActivity;
 import com.example.myapplicationtroc.ProfilActivity;
 import com.example.myapplicationtroc.R;
 import com.example.myapplicationtroc.bddManager.TrocManager;
+import com.example.myapplicationtroc.bddManager.TrocTable;
 
 import java.util.ArrayList;
 
@@ -21,6 +21,9 @@ public class TrocDisplayActivity extends AppCompatActivity {
     private TrocManager trocManager;
     private Button idAdd;
     private Button idprofil;
+    private CheckBox idcheckbox;
+
+
 
     @Override
     protected void onCreate( Bundle savedInstanceState ) {
@@ -29,6 +32,7 @@ public class TrocDisplayActivity extends AppCompatActivity {
         this.idAdd = (Button) this.findViewById(R.id.idAdd);
         this.mMesTrocV = (ListView) this.findViewById(R.id.mesTroc);
         this.idprofil = (Button) this.findViewById(R.id.idprofil);
+
         trocAdaptateur = new TrocAdaptateur(getApplicationContext() , 0);
         mesTrocList = new ArrayList<>();
         // j ecoute mes Buttons car il attend un evenement
@@ -45,9 +49,9 @@ public class TrocDisplayActivity extends AppCompatActivity {
             }
         });
 
-
         TrocManager trocManager = new TrocManager(this); // gestionnaire de la table "troc"
         trocManager.open(); // ouverture de la table en lecture/écriture
+
         Cursor c = trocManager.getTroc();
         if (c.moveToFirst()) {
             do {
@@ -63,6 +67,9 @@ public class TrocDisplayActivity extends AppCompatActivity {
                 System.out.println(img);
                 //je les ajoutes dans l arraylist(listView)
                 mesTrocList.add(new TrocList("Type de produit : " + leTitre , img , "Descriptif : " + leDescriptif , "Etat du produit : " + letat));
+
+               // trocManager.supTroc(trocTable.getId_troc());
+
 
             }
             while (c.moveToNext());

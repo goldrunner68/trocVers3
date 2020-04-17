@@ -17,6 +17,7 @@ public class TrocTable {
 
     }
 
+
     public int getId_troc() {
         return id_troc;
     }
