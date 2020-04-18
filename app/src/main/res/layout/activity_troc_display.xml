@@ -9,7 +9,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/ColorVert" android:orientation="horizontal">
+        android:background="@color/colorGlobal" android:orientation="horizontal">
         <Button
             android:id="@+id/idAdd"
             android:layout_width="wrap_content"
