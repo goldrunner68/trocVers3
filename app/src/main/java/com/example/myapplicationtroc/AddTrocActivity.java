@@ -4,6 +4,8 @@ package com.example.myapplicationtroc;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.Bundle;
+import android.os.Environment;
+import android.util.Log;
 import android.view.View;
 import android.widget.*;
 import androidx.appcompat.app.AppCompatActivity;
@@ -11,6 +13,10 @@ import com.example.myapplicationtroc.article.TrocDisplayActivity;
 import com.example.myapplicationtroc.bddManager.TrocManager;
 import com.example.myapplicationtroc.bddManager.TrocTable;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
 
 
 public class AddTrocActivity extends AppCompatActivity {
@@ -54,6 +60,7 @@ public class AddTrocActivity extends AppCompatActivity {
             @Override
         public void onClick(View v) {// capture de l image
             Intent cameraIntent = new Intent(android.provider.MediaStore.ACTION_IMAGE_CAPTURE);
+
             startActivityForResult(cameraIntent, CAMERA_REQUEST);
         }
     });
@@ -62,8 +69,27 @@ public class AddTrocActivity extends AppCompatActivity {
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode , resultCode , data);
         if (requestCode == CAMERA_REQUEST) {
-            Bitmap photo = (Bitmap) data.getExtras().get("data");
-            imageView20.setImageBitmap(photo);
+            Bitmap bitmap = (Bitmap) data.getExtras().get("data");
+            imageView20.setImageBitmap(bitmap);
+            try {
+                File sdCard = Environment.getExternalStorageDirectory();
+                File dir = new File(sdCard.getAbsolutePath() + "/camtest");
+                dir.mkdirs();
+                String fileName = String.format("%d.jpg", System.currentTimeMillis());
+                File outFile = new File(dir, fileName);
+
+                FileOutputStream outStream = new FileOutputStream(outFile);
+                bitmap.compress(Bitmap.CompressFormat.JPEG, 100, outStream);
+                outStream.flush();
+                outStream.close();
+                Log.d(TAG, "photo prise et sauvegarder dans " + outFile.getAbsolutePath());
+
+
+            } catch (IOException e) {
+
+                e.printStackTrace();
+            } finally {
+            }
         }
     }
 

@@ -68,7 +68,6 @@ public class TrocDisplayActivity extends AppCompatActivity {
                 //je les ajoutes dans l arraylist(listView)
                 mesTrocList.add(new TrocList("Type de produit : " + leTitre , img , "Descriptif : " + leDescriptif , "Etat du produit : " + letat));
 
-               // trocManager.supTroc(trocTable.getId_troc());
 
 
             }
