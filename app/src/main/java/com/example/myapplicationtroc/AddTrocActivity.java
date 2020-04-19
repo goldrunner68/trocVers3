@@ -1,6 +1,7 @@
 package com.example.myapplicationtroc;
 
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.Bundle;
@@ -72,10 +73,11 @@ public class AddTrocActivity extends AppCompatActivity {
             Bitmap bitmap = (Bitmap) data.getExtras().get("data");
             imageView20.setImageBitmap(bitmap);
             try {
-                File sdCard = Environment.getExternalStorageDirectory();
+                File sdCard = getExternalFilesDir(Environment.DIRECTORY_DCIM);
+                assert sdCard != null;
                 File dir = new File(sdCard.getAbsolutePath() + "/camtest");
                 dir.mkdirs();
-                String fileName = String.format("%d.jpg", System.currentTimeMillis());
+                @SuppressLint("DefaultLocale") String fileName = String.format("%d.jpg", System.currentTimeMillis());
                 File outFile = new File(dir, fileName);
 
                 FileOutputStream outStream = new FileOutputStream(outFile);
